@@ -9,8 +9,12 @@ import java.util.List;
 import java.util.Scanner;
 
 
+
 @SpringBootApplication
 public class WarehouseApplication {
+
+
+	WarehouseItem item;
 
 	private static int run = 1;
 	//mozliwe komendy w kolekcji List
@@ -30,7 +34,7 @@ public class WarehouseApplication {
 		while (run == 1){
 
 			//wstep
-			System.out.println("Dostępne komendy: help, add, remove, list, exit");
+			System.out.println("Dostepne komendy: help, add, remove, list, exit");
 			System.out.println();
 			//dwukropek po ktorym bedziemy wpisywali komendy
 			System.out.print(":");
@@ -38,7 +42,7 @@ public class WarehouseApplication {
 			//czytamy klawiature w konsoli
 			Scanner scanner = new Scanner(System. in);
 			String inputString = scanner. nextLine();
-			System.out.println("Wpisałeś komendę: \n"+inputString);
+			System.out.println("Wpisales komende: \n"+inputString);
 			System.out.println();
 
 			//dzielimy to co wpisane na elementy oddzielone spacja - zeby oddzielic komende i jej argument
@@ -60,7 +64,7 @@ public class WarehouseApplication {
 					run = 0;
 				} else if(command.equalsIgnoreCase("help")){
 					// wypisz pomoc
-					System.out.println("Dostępne komendy: help, add, remove, list, exit");
+					System.out.println("Dostepne komendy: help, add, remove, list, exit");
 					System.out.println("help - wyswietla pomoc, add NowyProdukt - dodaje, remove - StaryProdukt - usuwa, list - wyswietla co jest w magazynie, exit - zamyka program");
 				} else if(command.equalsIgnoreCase("add")){
 					// dodaj element (przechowywany w zmiennej argument) to kolekcji ArrayList nazwanej productsInwarehouse
