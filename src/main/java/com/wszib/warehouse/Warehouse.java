@@ -1,6 +1,5 @@
 package com.wszib.warehouse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,12 +12,12 @@ public class Warehouse {
 
     private int run = 1;
     private int currentItemId = 1;
-    WarehouseItem item;
+    private WarehouseItem item;
     //mozliwe komendy w kolekcji List
-    List<String> commands = Arrays.asList("help", "add", "remove", "list", "exit");
+    private List<String> commands = Arrays.asList("help", "add", "remove", "list", "exit");
 
     //nasza mini baza danych w kolekcji typu ArrayList
-    List<WarehouseItem> productsInWarehouse = new ArrayList<>();
+    private List<WarehouseItem> productsInWarehouse = new ArrayList<>();
 
     public Warehouse() {
         //wstep
@@ -27,7 +26,7 @@ public class Warehouse {
         System.out.println();
     }
 
-    public void runApplication() {
+    void runApplication() {
         {
             //Niech program działa dopóki nie ustawię run na 0
             while (run == 1) {

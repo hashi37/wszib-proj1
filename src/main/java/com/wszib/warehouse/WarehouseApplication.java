@@ -7,10 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class WarehouseApplication {
 
-    Warehouse warehouse;
+    private Warehouse warehouse;
 
     @Autowired
-    public WarehouseApplication(Warehouse warehouse) {
+    public WarehouseApplication(Warehouse theWarehouse) {
+        warehouse = theWarehouse;
         warehouse.runApplication();
     }
 
