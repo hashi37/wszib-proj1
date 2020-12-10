@@ -66,7 +66,7 @@ public class Warehouse {
                 //sprawdzamy czy znamy komende
                 if (!commands.contains(command)) {
                     System.out.println("Nieznana komenda!");
-                    return;
+                    continue;
                 }
 
                 switch (command) {
