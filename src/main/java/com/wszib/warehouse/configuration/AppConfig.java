@@ -1,4 +1,4 @@
-package com.wszib.warehouse;
+package com.wszib.warehouse.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

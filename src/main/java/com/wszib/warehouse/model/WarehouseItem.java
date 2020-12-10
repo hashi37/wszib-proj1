@@ -1,4 +1,4 @@
-package com.wszib.warehouse;
+package com.wszib.warehouse.model;
 
 import org.springframework.stereotype.Component;
 
@@ -9,11 +9,6 @@ public class WarehouseItem {
     // numer
     public int id;
 
-
-    public WarehouseItem(String name, int id) {
-        this.name = name;
-        this.id = id;
-    }
 
     public WarehouseItem() {
     }
@@ -35,8 +30,8 @@ public class WarehouseItem {
     }
 
     @Override
-    public String toString(){
-        return ""+id+":"+name;
+    public String toString() {
+        return "" + id + ":" + name;
     }
 
 }
