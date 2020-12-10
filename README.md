@@ -1,6 +1,6 @@
 # wszib-proj1
 
-Super aplikacja magazynowa!
+Super aplikacja magazynowa!!!
 
 Żeby włączyć w Intellij uruchom WarehoursApplication
 
