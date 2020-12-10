@@ -21,7 +21,7 @@ public class Warehouse {
 
     public Warehouse() {
         //wstep
-        System.out.println("Prosta baza danych Magazyn Jakuba!");
+        System.out.println("Prosta baza danych Moj Magazyn!");
         System.out.println("Dostepne komendy: help, add, remove, list, exit");
         System.out.println();
     }
