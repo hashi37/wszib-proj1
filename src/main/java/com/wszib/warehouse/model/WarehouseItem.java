@@ -1,13 +1,22 @@
 package com.wszib.warehouse.model;
 
+
 import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+
 @Component
+@Entity
+@Table(name = "warehouseitem")
 public class WarehouseItem {
-    // nazwa
-    public String name;
     // numer
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public int id;
+    // nazwa
+    @Column(name = "name")
+    public String name;
 
 
     public WarehouseItem() {

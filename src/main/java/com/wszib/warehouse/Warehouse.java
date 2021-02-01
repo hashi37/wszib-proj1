@@ -1,6 +1,7 @@
 package com.wszib.warehouse;
 
 import com.wszib.warehouse.database.WarehouseDatabase;
+import com.wszib.warehouse.model.WarehouseItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +24,7 @@ public class Warehouse {
     // obsługa działąjącej pętli czytającej komendy z klawiatury
     private int run = 1;
 
-    // moduł wewnętrzen bazy danych
+    // moduł bazy danych
     @Autowired
     WarehouseDatabase warehouseDatabase;
 
@@ -82,7 +83,10 @@ public class Warehouse {
                     case COMMAND_ADD:
                         // dodaj element (przechowywany w zmiennej argument) to kolekcji ArrayList nazwanej productsInwarehouse
                         System.out.println("Dodaje: " + argument);
-                        warehouseDatabase.addNewItem(argument);
+
+                        WarehouseItem item = new WarehouseItem();
+                        item.setName(argument);
+                        warehouseDatabase.addNewItem(item);
                         break;
                     case COMMAND_REMOVE:
                         // usun element z kolekcji ArrayList nazwanej productsInwarehouse

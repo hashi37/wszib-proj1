@@ -1,13 +1,15 @@
 package com.wszib.warehouse.database;
 
+import com.wszib.warehouse.model.WarehouseItem;
+
 public interface WarehouseDatabase {
 
     /**
      * Dodaja nowy element do bazy
      *
-     * @param itemName
+     * @param item
      */
-    void addNewItem(String itemName);
+    void addNewItem(WarehouseItem item);
 
     /**
      * Usun element z bady po id
