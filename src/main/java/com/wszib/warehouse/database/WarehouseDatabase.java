@@ -2,6 +2,8 @@ package com.wszib.warehouse.database;
 
 import com.wszib.warehouse.model.WarehouseItem;
 
+import java.util.List;
+
 public interface WarehouseDatabase {
 
     /**
@@ -24,5 +26,12 @@ public interface WarehouseDatabase {
      * @return String elementow zapisanych w bazie
      */
     String getItemList();
+
+
+    /**
+     *
+     * @return List obiektów z bazy
+     */
+    List getAllItems();
 
 }

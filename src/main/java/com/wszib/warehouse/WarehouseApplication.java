@@ -12,7 +12,7 @@ public class WarehouseApplication {
     @Autowired
     public WarehouseApplication(Warehouse theWarehouse) {
         warehouse = theWarehouse;
-        warehouse.runApplication();
+        //warehouse.runApplication();
     }
 
     public static void main(String[] args) {

@@ -39,6 +39,11 @@ public class WarehouseDatabaseInCollectionImpl implements WarehouseDatabase {
         return productsInWarehouse.toString();
     }
 
+    @Override
+    public List getAllItems() {
+        return null;
+    }
+
     /**
      * @param id
      * @return Znaleziony element

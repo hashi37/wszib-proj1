@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><title>Baza danych</title></head>
+<body>
+<div th:switch="${items}">
+    <h2 th:case="null">Brak przedmiotów w bazie danych!</h2>
+    <div th:case="*">
+        <h2>Przedmioty</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>Usuń</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td><a th:href="@{/delete/{id}(id=${item.id})}">Usuń</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/additemform">Dodaj nowy przedmiot</a></p>
+</div>
+</body>
+</html>

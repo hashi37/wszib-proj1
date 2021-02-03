@@ -22,17 +22,16 @@ public class WarehouseDatabaseImpl implements WarehouseDatabase {
 
     @Override
     public void addNewItem(WarehouseItem item) {
-        System.out.println("WarehouseDatabaseImpl addNewItem: "+item);
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         session.persist(item);
         tx.commit();
+        System.out.println("WarehouseDatabaseImpl addNewItem: "+item);
         session.close();
     }
 
     @Override
     public void removeItem(int id) {
-        System.out.println("WarehouseDatabaseImpl removeItem: "+id);
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         WarehouseItem item ;
@@ -42,15 +41,23 @@ public class WarehouseDatabaseImpl implements WarehouseDatabase {
 
         session.flush() ;
         tx.commit();
+        System.out.println("WarehouseDatabaseImpl removeItem: "+id);
         session.close();
     }
 
     @Override
     public String getItemList() {
         System.out.println("WarehouseDatabaseImpl getItemList");
+        return getAllItems().toString();
+    }
+
+    @Override
+    public List getAllItems() {
+        System.out.println("WarehouseDatabaseImpl getAllItems");
+        List<WarehouseItem> itemList;
         Session session = this.sessionFactory.openSession();
-        List<WarehouseItem> itemList = session.createQuery("from WarehouseItem").list();
+        itemList = session.createQuery("from WarehouseItem").list();
         session.close();
-        return itemList.toString();
+        return itemList;
     }
 }

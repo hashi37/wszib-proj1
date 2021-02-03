@@ -29,15 +29,13 @@ public class Warehouse {
     WarehouseDatabase warehouseDatabase;
 
 
-    public Warehouse() {
-        //wstep
-        System.out.println("Prosta baza danych Moj Magazyn!");
-        System.out.println("Dostepne komendy: help, add, remove, list, exit");
-        System.out.println();
-    }
-
     void runApplication() {
         {
+            //wstep
+            System.out.println("Prosta baza danych Moj Magazyn!");
+            System.out.println("Dostepne komendy: help, add, remove, list, exit");
+            System.out.println();
+
             //Niech program działa dopóki nie ustawię run na 0
             while (run == 1) {
 
