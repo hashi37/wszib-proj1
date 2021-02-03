@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head><title>Baza danych</title></head>
+<head>
+    <title>Baza danych</title>
+    <link th:href="@{/styles/style.css}" rel="stylesheet" />
+</head>
 <body>
 <div th:switch="${items}">
     <h2 th:case="null">Brak przedmiotów w bazie danych!</h2>
     <div th:case="*">
+        <h1><span th:text="${appName}"></span></h1>
         <h2>Przedmioty</h2>
         <table>
             <thead>

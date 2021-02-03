@@ -24,7 +24,7 @@ public class SimpleController {
     @GetMapping("/")
     public String homePage(Model model) {
         model.addAttribute("appName", appName);
-        return "index";
+        return "redirect:/index";
     }
 
     @GetMapping("/index")
