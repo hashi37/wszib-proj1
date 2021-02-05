@@ -40,7 +40,7 @@ public class SimpleController {
     }
 
     @PostMapping("/additem")
-    public String addNewItem(@ModelAttribute("command") WarehouseItem item, BindingResult result, Model model) {
+    public String addNewItem(@ModelAttribute("item") WarehouseItem item, BindingResult result, Model model) {
         model.addAttribute("item", new WarehouseItem());
         if (result.hasErrors()) {
             return "add-item";
@@ -55,10 +55,29 @@ public class SimpleController {
         return "redirect:/index";
     }
 
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable("id") int id, Model model) {
+        WarehouseItem item = warehouseDatabase.getById(id);
+
+        model.addAttribute("item", item);
+        return "update-item";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateUser(@PathVariable("id") int id, WarehouseItem item,
+                             BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            item.setId(id);
+            return "update-item";
+        }
+
+        warehouseDatabase.saveItem(item);
+        return "redirect:/index";
+    }
+
     @ModelAttribute("item")
     public WarehouseItem defaultInstance() {
         WarehouseItem item = new WarehouseItem();
-        //item.setName("First Item");
         return item;
     }
 

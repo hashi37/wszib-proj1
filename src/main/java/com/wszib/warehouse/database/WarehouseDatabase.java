@@ -27,11 +27,22 @@ public interface WarehouseDatabase {
      */
     String getItemList();
 
-
     /**
-     *
+     * Pobiera listę wszystkich obietków
      * @return List obiektów z bazy
      */
     List getAllItems();
 
+    /**
+     * Pobiera obiekt z bazy
+     * @param id
+     * @return Przedmiot o danym id
+     */
+    WarehouseItem getById(int id);
+
+    /**
+     * Zapisuje obiekt do bazy
+     * @param item
+     */
+    void saveItem(WarehouseItem item);
 }

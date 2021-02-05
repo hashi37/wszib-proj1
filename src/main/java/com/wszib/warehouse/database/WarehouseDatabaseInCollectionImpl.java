@@ -44,6 +44,16 @@ public class WarehouseDatabaseInCollectionImpl implements WarehouseDatabase {
         return null;
     }
 
+    @Override
+    public WarehouseItem getById(int id) {
+        return findInProductsInWarehouseList(id);
+    }
+
+    @Override
+    public void saveItem(WarehouseItem item) {
+        //nie używana
+    }
+
     /**
      * @param id
      * @return Znaleziony element

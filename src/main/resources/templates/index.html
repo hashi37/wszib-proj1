@@ -15,6 +15,7 @@
             <tr>
                 <th>Id</th>
                 <th>Nazwa</th>
+                <th>Edytuj</th>
                 <th>Usuń</th>
             </tr>
             </thead>
@@ -22,6 +23,7 @@
             <tr th:each="item : ${items}">
                 <td th:text="${item.id}"></td>
                 <td th:text="${item.name}"></td>
+                <td><a th:href="@{/edit/{id}(id=${item.id})}">Edytuj</a></td>
                 <td><a th:href="@{/delete/{id}(id=${item.id})}">Usuń</a></td>
             </tr>
             </tbody>

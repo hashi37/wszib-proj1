@@ -22,17 +22,16 @@ public class WarehouseDatabaseImpl implements WarehouseDatabase {
 
     @Override
     public void addNewItem(WarehouseItem item) {
-        Session session = this.sessionFactory.openSession();
+        Session session = this.sessionFactory.getCurrentSession();
         Transaction tx = session.beginTransaction();
         session.persist(item);
         tx.commit();
         System.out.println("WarehouseDatabaseImpl addNewItem: "+item);
-        session.close();
     }
 
     @Override
     public void removeItem(int id) {
-        Session session = this.sessionFactory.openSession();
+        Session session = this.sessionFactory.getCurrentSession();
         Transaction tx = session.beginTransaction();
         WarehouseItem item ;
 
@@ -42,7 +41,6 @@ public class WarehouseDatabaseImpl implements WarehouseDatabase {
         session.flush() ;
         tx.commit();
         System.out.println("WarehouseDatabaseImpl removeItem: "+id);
-        session.close();
     }
 
     @Override
@@ -55,9 +53,28 @@ public class WarehouseDatabaseImpl implements WarehouseDatabase {
     public List getAllItems() {
         System.out.println("WarehouseDatabaseImpl getAllItems");
         List<WarehouseItem> itemList;
-        Session session = this.sessionFactory.openSession();
+        Session session = this.sessionFactory.getCurrentSession();
         itemList = session.createQuery("from WarehouseItem").list();
-        session.close();
         return itemList;
+    }
+
+    @Override
+    public WarehouseItem getById(int id) {
+        System.out.println("WarehouseDatabaseImpl getAllItems");
+        WarehouseItem item;
+        Session session = this.sessionFactory.getCurrentSession();
+        //item = (WarehouseItem)session.createQuery("from WarehouseItem where id = :id").setParameter("id",id).getSingleResult();
+        item = (WarehouseItem)session.load(WarehouseItem.class,id);
+        return item;
+    }
+
+    @Override
+    public void saveItem(WarehouseItem item) {
+        System.out.println("WarehouseDatabaseImpl saveItem: "+item);
+        Session session = this.sessionFactory.getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        session.update(item);
+        session.flush() ;
+        tx.commit();
     }
 }
